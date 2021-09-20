@@ -4,7 +4,7 @@ USER root
 
 RUN apt-key adv --fetch-keys https://download.docker.com/linux/debian/gpg && \
   echo "deb [arch=amd64] https://download.docker.com/linux/debian $(grep "VERSION_CODENAME=" /etc/os-release | awk -F= {' print $2'} | sed s/\"//g) stable" >> /etc/apt/sources.list && \
-  apt-get update && apt-get -y upgrade && apt-get install -y docker-ce-cli && \
+  apt-get update && apt-get -y upgrade && apt-get install -y docker-ce-cli wget && \
   rm -rf /var/lib/apt/lists/*  
 
 COPY *.crt /usr/local/share/ca-certificates
