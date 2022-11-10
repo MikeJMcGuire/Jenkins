@@ -12,3 +12,5 @@ COPY *.crt /usr/local/share/ca-certificates
 RUN update-ca-certificates
 
 USER jenkins
+
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
